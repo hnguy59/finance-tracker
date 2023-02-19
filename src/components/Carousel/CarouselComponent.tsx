@@ -1,7 +1,6 @@
-import { FC } from "react";
-import Carousel from "react-material-ui-carousel";
-import * as Styles from "./CarouselComponent.styles";
-import CarouselItem from "./molecules/CarouselItem";
+import { FC } from 'react';
+import * as Styles from './CarouselComponent.styles';
+import CarouselItem from './molecules/CarouselItem';
 
 export type CarouselItemType = {
   src: string;

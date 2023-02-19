@@ -1,13 +1,13 @@
-import portrait from "data/images/portrait.jpeg";
-import { navigateTo } from "helpers/navigate.helpers";
-import { navbarItems } from "helpers/routes.helpers";
-import { Theme } from "helpers/theme.helpers";
-import { FC, useCallback, useState } from "react";
-import { To, useLocation, useNavigate } from "react-router-dom";
-import useTheme from "hooks/useTheme";
-import { useAppDispatch } from "reducers";
-import { setTheme } from "reducers/themeSlice";
-import * as Styles from "./Navbar.styles";
+import portrait from 'data/images/portrait.jpeg';
+import { navigateTo } from 'helpers/navigate.helpers';
+import { navbarItems } from 'helpers/routes.helpers';
+import { Theme } from 'helpers/theme.helpers';
+import { FC, useCallback, useState } from 'react';
+import { To, useLocation, useNavigate } from 'react-router-dom';
+import useTheme from 'hooks/useTheme';
+import { useAppDispatch } from 'reducers';
+import { setTheme } from 'reducers/themeSlice';
+import * as Styles from './Navbar.styles';
 
 interface NavbarProps {}
 

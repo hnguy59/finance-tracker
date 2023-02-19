@@ -18,7 +18,7 @@
     "@types/react-dom": "^18.0.0",
     "@types/react-scroll": "^1.8.6",
     "axios": "^1.2.4",
-    "firebase": "^9.16.0",
+    "firebase": "^9.17.1",
     "framer-motion": "^8.5.5",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
