@@ -6,9 +6,9 @@ type NavbarItemsType = {
 };
 
 export const navbarItems: NavbarItemsType[] = [
-  {
-    title: "Works",
-    path: "/works",
-  },
-  { title: "Setup", path: "/setup" },
+  // {
+  //   title: "Works",
+  //   path: "/works",
+  // },
+  // { title: "Setup", path: "/setup" },
 ];

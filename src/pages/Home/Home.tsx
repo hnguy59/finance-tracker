@@ -67,14 +67,14 @@ const Home: FC<{}> = () => {
             planning and designing all the way to solving real-life problems
             with code.
           </Styles.WorkContent>
-          <Styles.WorkButton
+          {/* <Styles.WorkButton
             color="secondary"
             variant={theme === Theme.DARK ? "contained" : "outlined"}
             endIcon={<KeyboardArrowRight />}
             onClick={handleClickWorkButton}
           >
             My portfolio
-          </Styles.WorkButton>
+          </Styles.WorkButton> */}
         </Styles.Work>
         <Styles.Bio>
           <Styles.Header>Bio</Styles.Header>
