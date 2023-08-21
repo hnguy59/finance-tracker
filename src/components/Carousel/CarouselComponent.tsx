@@ -1,20 +1,21 @@
-import { FC } from 'react';
-import * as Styles from './CarouselComponent.styles';
-import CarouselItem from './molecules/CarouselItem';
+import { FC } from 'react'
+import * as Styles from './CarouselComponent.styles'
+import CarouselItem from './molecules/CarouselItem'
+import { StaticImageData } from 'next/image'
 
 export type CarouselItemType = {
-  src: string;
-  title: string;
-  description: string;
-};
+  image: StaticImageData
+  title: string
+  description: string
+}
 
 type CarouselComponentProps = {
-  carouselItems?: CarouselItemType[];
-};
+  carouselItems?: CarouselItemType[]
+}
 
 const CarouselComponent: FC<CarouselComponentProps> = ({ carouselItems }) => {
   if (!carouselItems) {
-    return <></>;
+    return <></>
   }
 
   return (
@@ -23,7 +24,7 @@ const CarouselComponent: FC<CarouselComponentProps> = ({ carouselItems }) => {
         <CarouselItem carouselItem={carouselItem} />
       ))}
     </Styles.CarouselContainer>
-  );
-};
+  )
+}
 
-export default CarouselComponent;
+export default CarouselComponent

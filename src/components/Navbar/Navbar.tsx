@@ -1,46 +1,46 @@
-import portrait from 'data/images/portrait.jpeg';
-import { navigateTo } from 'helpers/navigate.helpers';
-import { navbarItems } from 'helpers/routes.helpers';
-import { Theme } from 'helpers/theme.helpers';
-import { FC, useCallback, useState } from 'react';
-import { To, useLocation, useNavigate } from 'react-router-dom';
-import useTheme from 'hooks/useTheme';
-import { useAppDispatch } from 'reducers';
-import { setTheme } from 'reducers/themeSlice';
-import * as Styles from './Navbar.styles';
+import portrait from 'data/images/portrait.jpeg'
+import { navigateTo } from '~/utils/helpers/navigate.helpers'
+import { navbarItems } from '~/utils/helpers/routes.helpers'
+import { Theme } from '~/utils/helpers/theme.helpers'
+import { FC, useCallback, useState } from 'react'
+import { To, useLocation, useNavigate } from 'react-router-dom'
+import useTheme from '~/utils/hooks/useTheme'
+import { useAppDispatch } from '~/utils/reducers'
+import { setTheme } from '~/utils/reducers/themeSlice'
+import * as Styles from './Navbar.styles'
 
 interface NavbarProps {}
 
 const Navbar: FC<NavbarProps> = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const { theme, themeProps } = useTheme();
-  const dispatch = useAppDispatch();
-  const [isMouseEnterNavTitle, setIsMouseEnterNavTitle] = useState(false);
+  const location = useLocation()
+  const navigate = useNavigate()
+  const { theme, themeProps } = useTheme()
+  const dispatch = useAppDispatch()
+  const [isMouseEnterNavTitle, setIsMouseEnterNavTitle] = useState(false)
 
-  const handleMouseEnterNavTitle = () => setIsMouseEnterNavTitle(true);
-  const handleMouseLeaveNavTitle = () => setIsMouseEnterNavTitle(false);
+  const handleMouseEnterNavTitle = () => setIsMouseEnterNavTitle(true)
+  const handleMouseLeaveNavTitle = () => setIsMouseEnterNavTitle(false)
 
   const handleClickNav = useCallback(
     (url: To): void => {
-      navigateTo(url, navigate);
+      navigateTo(url, navigate)
     },
     [navigate]
-  );
+  )
 
   const handleChangeTheme = useCallback(
     (checked: boolean): void => {
-      const selectTheme = checked ? Theme.DARK : Theme.LIGHT;
-      dispatch(setTheme(selectTheme));
+      const selectTheme = checked ? Theme.DARK : Theme.LIGHT
+      dispatch(setTheme(selectTheme))
     },
     [dispatch]
-  );
+  )
 
   return (
     <Styles.Navbar>
       <Styles.NavbarContainer>
         <Styles.NavTitle
-          onClick={() => handleClickNav("/" as To)}
+          onClick={() => handleClickNav('/' as To)}
           onMouseEnter={handleMouseEnterNavTitle}
           onMouseLeave={handleMouseLeaveNavTitle}
           {...themeProps}
@@ -74,7 +74,7 @@ const Navbar: FC<NavbarProps> = () => {
         </Styles.NavSwitch>
       </Styles.NavbarContainer>
     </Styles.Navbar>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

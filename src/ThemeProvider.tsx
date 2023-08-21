@@ -1,18 +1,14 @@
-import {
-  createTheme,
-  CssBaseline,
-  ThemeProvider as MUIThemeProvider,
-} from "@mui/material";
-import { baseTheme, Theme } from "helpers/theme.helpers";
-import { FC, useMemo } from "react";
-import { useAppSelector } from "reducers";
+import { createTheme, CssBaseline, ThemeProvider as MUIThemeProvider } from '@mui/material'
+import { baseTheme, Theme } from '~/utils/helpers/theme.helpers'
+import { FC, useMemo } from 'react'
+import { useAppSelector } from '~/utils/reducers'
 
 type ThemeProps = {
-  children: React.ReactNode;
-};
+  children: React.ReactNode
+}
 
 const ThemeProvider: FC<ThemeProps> = ({ children }) => {
-  const theme = useAppSelector((state) => state.theme.value);
+  const theme = useAppSelector((state) => state.theme.value)
 
   const lightTheme = useMemo(
     () =>
@@ -20,12 +16,12 @@ const ThemeProvider: FC<ThemeProps> = ({ children }) => {
         ...baseTheme,
         palette: {
           background: {
-            default: "#DEE4E7",
+            default: '#DEE4E7',
           },
         },
       }),
     []
-  );
+  )
 
   const darkTheme = useMemo(
     () =>
@@ -33,30 +29,30 @@ const ThemeProvider: FC<ThemeProps> = ({ children }) => {
         ...baseTheme,
         palette: {
           background: {
-            default: "#37474F",
+            default: '#37474F',
           },
         },
       }),
     []
-  );
+  )
 
   const selectedTheme = useMemo(() => {
     switch (theme) {
       case Theme.LIGHT:
-        return lightTheme;
+        return lightTheme
       case Theme.DARK:
-        return darkTheme;
+        return darkTheme
       default:
-        return lightTheme;
+        return lightTheme
     }
-  }, [darkTheme, lightTheme, theme]);
+  }, [darkTheme, lightTheme, theme])
 
   return (
     <MUIThemeProvider theme={selectedTheme}>
       <CssBaseline />
       {children}
     </MUIThemeProvider>
-  );
-};
+  )
+}
 
-export default ThemeProvider;
+export default ThemeProvider
