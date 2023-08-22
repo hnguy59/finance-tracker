@@ -1,16 +1,14 @@
 import { AnimatePresence } from 'framer-motion'
-import { FC, ReactElement, ReactNode, useCallback } from 'react'
+import { ReactElement, useCallback } from 'react'
 import Navbar from 'components/Navbar'
-import useTheme from '~/utils/hooks/useTheme'
-import * as Styles from './Layout.styles'
 import { useRouter } from 'next/router'
+import { motion } from 'framer-motion'
 
 interface LayoutWrapperProps {
   children: ReactElement
 }
 
-const LayoutWrapper = ({ children }: LayoutWrapperProps) => {
-  const { themeProps } = useTheme()
+export default function LayoutWrapper({ children }: LayoutWrapperProps) {
   const router = useRouter()
 
   const year = new Date().getFullYear()
@@ -26,36 +24,33 @@ const LayoutWrapper = ({ children }: LayoutWrapperProps) => {
   }, [])
 
   return (
-    <Styles.Layout>
-      <Styles.Header>
+    <main className="flex flex-col bg-white dark:bg-gray-200">
+      <div className="flex min-h-[56px]">
         <Navbar />
-      </Styles.Header>
-      <Styles.Body {...themeProps}>
+      </div>
+      <div className="flex w-full max-w-[600px] p-4 m-auto relative">
         <AnimatePresence
           mode="wait"
           initial
           onExitComplete={handleExitCompleteAnimatePresence}
           key={router.pathname}
         >
-          <Styles.ContentContainer
+          <motion.div
             key={router.pathname}
             initial={{ opacity: 0, x: 0, y: 20 }}
             animate={{ opacity: 1, x: 0, y: 0 }}
             exit={{ opacity: 0, x: -0, y: 20 }}
             transition={{ duration: 0.4, type: 'easeInOut' }}
-            style={{ position: 'relative' }}
           >
             {children}
-          </Styles.ContentContainer>
+          </motion.div>
         </AnimatePresence>
-      </Styles.Body>
-      <Styles.Footer>
-        <Styles.FooterContent {...themeProps}>
+      </div>
+      <div className="flex mt-auto justify-center">
+        <div className="flex w-full max-w-[1200px] p-4 self-center justify-center">
           © {year} Henry Nguyen. All Rights Reserved.
-        </Styles.FooterContent>
-      </Styles.Footer>
-    </Styles.Layout>
+        </div>
+      </div>
+    </main>
   )
 }
-
-export default LayoutWrapper

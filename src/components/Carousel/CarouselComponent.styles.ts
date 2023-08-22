@@ -1,16 +1,16 @@
-import styled from "@emotion/styled";
-import { Paper } from "@mui/material";
-import Carousel from "react-material-ui-carousel";
+import styled from '@emotion/styled'
+import { Paper } from '@mui/material'
+import Carousel from 'react-material-ui-carousel'
 
 type CarouselItemContainerProps = {
-  src: string;
-};
+  src: string
+}
 
 export const CarouselItem = styled.div`
   display: flex;
   width: 100%;
   height: 300px;
-`;
+`
 
 export const CarouselItemContainer = styled(Paper)<CarouselItemContainerProps>`
   display: flex;
@@ -25,11 +25,11 @@ export const CarouselItemContainer = styled(Paper)<CarouselItemContainerProps>`
   &:hover {
     cursor: pointer;
   }
-`;
+`
 
 export const CarouselContainer = styled(Carousel)`
   width: 100%;
-`;
+`
 
 export const InfoBox = styled.div`
   display: flex;
@@ -37,13 +37,13 @@ export const InfoBox = styled.div`
   width: 100%;
   background-color: rgba(255, 255, 255, 0.5);
   padding: 16px;
-`;
+`
 
 export const InfoTitle = styled.div`
   font-size: xx-large;
   font-weight: bold;
-`;
+`
 
 export const InfoDescription = styled.div`
   font-size: large;
-`;
+`

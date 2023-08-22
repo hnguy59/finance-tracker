@@ -1,7 +1,12 @@
 import { Divider } from '@mui/material'
 import * as Styles from './HomeSections.styles'
+import useTheme from 'utils/hooks/useTheme'
+import Image from 'next/image'
+import { Facebook, Instagram, Language, LinkedIn, YouTube } from '@mui/icons-material'
 
-export const Bio = () => {
+export default function Bio() {
+  const { themeProps } = useTheme()
+
   return (
     <Styles.Bio>
       <Styles.Header>Bio</Styles.Header>
@@ -15,7 +20,7 @@ export const Bio = () => {
               placement="left-start"
               title={
                 <Styles.BioTooltipContainer>
-                  <img
+                  <Image
                     src="http://t3.gstatic.com/licensed-image?q=tbn:ANd9GcSzOogUle8GrnUaD6n2vArFGsXdGVfeZqRpC6zJqvoXWWroSAZ95-_WVn6XgaNb9oHP"
                     alt="Brisbane"
                     width={267}
@@ -52,10 +57,12 @@ export const Bio = () => {
               placement="left-start"
               title={
                 <Styles.BioTooltipContainer>
-                  <img
+                  <Image
                     src="https://static.wixstatic.com/media/2f509e_4d0896f4b31d479389b49f08799491e0~mv2.png/v1/fill/w_267,h_80,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/sunflowersoftware-logo.png"
                     alt="Sunflower Software"
                     style={{ backgroundColor: 'white' }}
+                    width={999}
+                    height={999}
                   />
                   <Divider />
                   <Styles.BioTooltipContent>
@@ -84,10 +91,11 @@ export const Bio = () => {
               placement="left-start"
               title={
                 <Styles.BioTooltipContainer>
-                  <img
+                  <Image
                     src="https://cms.qut.edu.au/__data/assets/image/0005/842270/why-qut.jpg"
                     alt="QUT"
                     width={267}
+                    height={999}
                   />
                   <Divider />
                   <Styles.BioTooltipContent>
@@ -115,7 +123,7 @@ export const Bio = () => {
               placement="left-start"
               title={
                 <Styles.BioTooltipContainer>
-                  <img
+                  <Image
                     src="https://speedwell.com.au/-/media/Project/Speedwell/Public-Website/Logo/logoSPWLiquid.svg?h=45&iar=0&w=136&hash=CDAE4EF9CB7EF732CC28E7B76E533B99"
                     alt="Speedwell"
                     width={267}
@@ -155,7 +163,7 @@ export const Bio = () => {
               placement="left-start"
               title={
                 <Styles.BioTooltipContainer>
-                  <img
+                  <Image
                     src="https://scontent.fbne4-1.fna.fbcdn.net/v/t39.30808-6/309832442_551805726921692_3172064707138922573_n.png?_nc_cat=100&ccb=1-7&_nc_sid=e3f864&_nc_ohc=ciDoKfXa3NUAX9jsekn&_nc_ht=scontent.fbne4-1.fna&oh=00_AfCOv6qPsJE6FqNZSgbUtCWXBAZ9a7cTF3QUHGvMCv01TA&oe=63DF526D"
                     alt="Max Kelsen"
                     width={267}
@@ -210,7 +218,7 @@ export const Bio = () => {
             >
               <b>Max Kelsen</b>
             </Styles.BioTooltip>
-            , I've always wanted to work for an AI company that makes a positive impact on the
+            , I have always wanted to work for an AI company that makes a positive impact on the
             world. Work culture, people and projects are amazing.
           </Styles.BioDescription>
         </Styles.BioRow>

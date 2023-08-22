@@ -1,39 +1,36 @@
-import { Dialog } from "@mui/material";
-import { FC, useCallback, useState } from "react";
-import { CarouselItemType } from "../CarouselComponent";
-import * as Styles from "../CarouselComponent.styles";
+import { Dialog, Paper } from '@mui/material'
+import { useCallback, useState } from 'react'
+import { CarouselItemType } from '../CarouselComponent'
+import Image from 'next/image'
 
-export type CarouselItemProps = { carouselItem: CarouselItemType };
+export type CarouselItemProps = { carouselItem: CarouselItemType }
 
-const CarouselItem: FC<CarouselItemProps> = ({ carouselItem }) => {
-  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+export default function CarouselItem({ carouselItem }: CarouselItemProps) {
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false)
 
   const handleOpenImageModal = useCallback(() => {
-    setIsImageModalOpen(true);
-  }, []);
+    setIsImageModalOpen(true)
+  }, [])
 
   const handleCloseImageModal = useCallback(() => {
-    setIsImageModalOpen(false);
-  }, []);
+    setIsImageModalOpen(false)
+  }, [])
 
   return (
-    <Styles.CarouselItem>
-      <Styles.CarouselItemContainer
-        src={carouselItem.src}
+    <div className="flex w-full h-[300px]">
+      <Paper
+        className="flex flex-col w-full h-full justify-end bg-cover bg-center hover:cursor-pointer"
+        style={{ backgroundImage: carouselItem.image }}
         onClick={handleOpenImageModal}
       >
-        <Styles.InfoBox>
-          <Styles.InfoTitle>{carouselItem.title}</Styles.InfoTitle>
-          <Styles.InfoDescription>
-            {carouselItem.description}
-          </Styles.InfoDescription>
-        </Styles.InfoBox>
-      </Styles.CarouselItemContainer>
+        <div className="flex flex-col w-full p-4 bg-white/50">
+          <div className="text-2xl font-bold">{carouselItem.title}</div>
+          <div className="text-lg">{carouselItem.description}</div>
+        </div>
+      </Paper>
       <Dialog open={isImageModalOpen} onClose={handleCloseImageModal}>
-        <img src={carouselItem.src} alt={carouselItem.title} />
+        <Image src={carouselItem.image} alt={carouselItem.title} />
       </Dialog>
-    </Styles.CarouselItem>
-  );
-};
-
-export default CarouselItem;
+    </div>
+  )
+}

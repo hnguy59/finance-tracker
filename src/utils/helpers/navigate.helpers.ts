@@ -1,7 +1,7 @@
-import { NavigateFunction, To } from "react-router-dom";
+import { NavigateFunction, To } from 'react-router-dom'
 
-export const navigateTo = (path: string | To, navigate: NavigateFunction) => {
+export function navigateTo(path: string | To, navigate: NavigateFunction) {
   setTimeout(() => {
-    navigate(path);
-  }, 0);
-};
+    navigate(path)
+  }, 0)
+}

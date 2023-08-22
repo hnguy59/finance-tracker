@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
-import { getFontColor, ThemeProps } from '~/utils/helpers/theme.helpers'
+import { getFontColor, ThemeProps } from 'utils/helpers/theme.helpers'
 
 export const Layout = styled.main`
   display: flex;

@@ -1,28 +1,21 @@
-import {
-  Download,
-  Email,
-  Facebook,
-  GitHub,
-  Instagram,
-  KeyboardArrowRight,
-  Language,
-  LinkedIn,
-  YouTube,
-} from '@mui/icons-material'
-import { Divider } from '@mui/material'
-import HenryCats from 'data/images/HenryCats.jpg'
-import { HobbiesCarouselContent } from '~/utils/helpers/data.helpers'
-import { Theme } from '~/utils/helpers/theme.helpers'
-import { FC, useCallback, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import CarouselComponent from 'components/Carousel/CarouselComponent'
-import ImageWithDialog from 'components/ImageWithDialog'
-import useTheme from '~/utils/hooks/useTheme'
+import Greeting from 'components/HomeSections/Greeting'
+import Intro from 'components/HomeSections/Intro'
+import Work from 'components/HomeSections/Work'
+import Bio from 'components/HomeSections/Bio'
+import Hobbies from 'components/HomeSections/Hobbies'
+import Socials from 'components/HomeSections/Socials'
 
-const Home: FC<{}> = () => {
-  const { theme, themeProps } = useTheme()
-
-  return <Home />
+export default function Index() {
+  return (
+    <div className="flex flex-col w-full" key="home">
+      <div className="flex flex-col w-full gap-8">
+        <Greeting />
+        <Intro />
+        <Work />
+        <Bio />
+        <Hobbies />
+        <Socials />
+      </div>
+    </div>
+  )
 }
-
-export default Home

@@ -1,10 +1,9 @@
 import * as Styles from './HomeSections.styles'
-import useTheme from '~/utils/hooks/useTheme'
+import useTheme from 'utils/hooks/useTheme'
 import { Download } from '@mui/icons-material'
-import ImageWithDialog from '../ImageWithDialog'
-import HenryCats from 'images/HenryCats.jpg'
+// import HenryCats from '/images/HenryCats.jpg'
 
-export const Intro = () => {
+export default function Intro() {
   const { themeProps } = useTheme()
 
   return (
@@ -17,9 +16,9 @@ export const Intro = () => {
           CV
         </Styles.ResumeDownload>
       </Styles.IntroCardContent>
-      <ImageWithDialog {...HenryCats}>
+      {/* <ImageWithDialog {...HenryCats}>
         <Styles.Image {...HenryCats} />
-      </ImageWithDialog>
+      </ImageWithDialog> */}
     </Styles.IntroCard>
   )
 }

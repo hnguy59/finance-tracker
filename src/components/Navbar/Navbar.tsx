@@ -1,80 +1,27 @@
-import portrait from 'data/images/portrait.jpeg'
-import { navigateTo } from '~/utils/helpers/navigate.helpers'
-import { navbarItems } from '~/utils/helpers/routes.helpers'
-import { Theme } from '~/utils/helpers/theme.helpers'
-import { FC, useCallback, useState } from 'react'
-import { To, useLocation, useNavigate } from 'react-router-dom'
-import useTheme from '~/utils/hooks/useTheme'
-import { useAppDispatch } from '~/utils/reducers'
-import { setTheme } from '~/utils/reducers/themeSlice'
-import * as Styles from './Navbar.styles'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
+import { Avatar } from '@mui/material'
+import ThemeSwitcher from 'components/Theme/ThemeSwitcher'
 
 interface NavbarProps {}
 
-const Navbar: FC<NavbarProps> = () => {
-  const location = useLocation()
-  const navigate = useNavigate()
-  const { theme, themeProps } = useTheme()
-  const dispatch = useAppDispatch()
-  const [isMouseEnterNavTitle, setIsMouseEnterNavTitle] = useState(false)
-
-  const handleMouseEnterNavTitle = () => setIsMouseEnterNavTitle(true)
-  const handleMouseLeaveNavTitle = () => setIsMouseEnterNavTitle(false)
-
-  const handleClickNav = useCallback(
-    (url: To): void => {
-      navigateTo(url, navigate)
-    },
-    [navigate]
-  )
-
-  const handleChangeTheme = useCallback(
-    (checked: boolean): void => {
-      const selectTheme = checked ? Theme.DARK : Theme.LIGHT
-      dispatch(setTheme(selectTheme))
-    },
-    [dispatch]
-  )
+export default function Navbar() {
+  const router = useRouter()
 
   return (
-    <Styles.Navbar>
-      <Styles.NavbarContainer>
-        <Styles.NavTitle
-          onClick={() => handleClickNav('/' as To)}
-          onMouseEnter={handleMouseEnterNavTitle}
-          onMouseLeave={handleMouseLeaveNavTitle}
-          {...themeProps}
+    <nav className="fixed w-full z-50">
+      <div className="flex items-center gap-4 m-auto max-w-[768px] w-full p-2">
+        <Link
+          href="/"
+          className="flex items-center gap-2 no-underline font-bold hover:cursor-pointer"
         >
-          <Styles.NavAvatar
-            src={portrait}
-            isMouseEnterNavTitle={isMouseEnterNavTitle}
-            {...themeProps}
-          />
+          <Avatar src="/images/portrait.jpeg" />
           Henry Nguyen
-        </Styles.NavTitle>
-        <Styles.NavMenu>
-          {navbarItems.map((navbarItem) => (
-            <Styles.NavItem key={navbarItem.title}>
-              <Styles.NavLink
-                onClick={() => handleClickNav(navbarItem.path)}
-                isActive={location.pathname === navbarItem.path}
-                {...themeProps}
-              >
-                {navbarItem.title}
-              </Styles.NavLink>
-            </Styles.NavItem>
-          ))}
-        </Styles.NavMenu>
-        <Styles.NavSwitch>
-          <Styles.ThemeSwitch
-            checked={theme === Theme.DARK}
-            onChange={(e, checked) => handleChangeTheme(checked)}
-            {...themeProps}
-          />
-        </Styles.NavSwitch>
-      </Styles.NavbarContainer>
-    </Styles.Navbar>
+        </Link>
+        <div className="ml-auto">
+          <ThemeSwitcher />
+        </div>
+      </div>
+    </nav>
   )
 }
-
-export default Navbar

@@ -1,5 +1,5 @@
-import { Theme, ThemeProps } from '~/utils/helpers/theme.helpers'
-import { useAppSelector } from '~/utils/reducers'
+import { Theme, ThemeProps } from 'utils/helpers/theme.helpers'
+import { useAppSelector } from 'utils/reducers'
 
 interface UseTheme {
   theme: Theme

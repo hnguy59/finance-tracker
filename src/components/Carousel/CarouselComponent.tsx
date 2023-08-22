@@ -1,10 +1,8 @@
-import { FC } from 'react'
-import * as Styles from './CarouselComponent.styles'
+import Carousel from 'react-material-ui-carousel'
 import CarouselItem from './molecules/CarouselItem'
-import { StaticImageData } from 'next/image'
 
 export type CarouselItemType = {
-  image: StaticImageData
+  image: string
   title: string
   description: string
 }
@@ -13,18 +11,16 @@ type CarouselComponentProps = {
   carouselItems?: CarouselItemType[]
 }
 
-const CarouselComponent: FC<CarouselComponentProps> = ({ carouselItems }) => {
+export default function CarouselComponent({ carouselItems }: CarouselComponentProps) {
   if (!carouselItems) {
     return <></>
   }
 
   return (
-    <Styles.CarouselContainer>
+    <Carousel className="w-full">
       {carouselItems.map((carouselItem) => (
-        <CarouselItem carouselItem={carouselItem} />
+        <CarouselItem carouselItem={carouselItem} key={carouselItem.title} />
       ))}
-    </Styles.CarouselContainer>
+    </Carousel>
   )
 }
-
-export default CarouselComponent

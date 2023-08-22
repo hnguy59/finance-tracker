@@ -1,11 +1,7 @@
 import * as Styles from './HomeSections.styles'
-import useTheme from '~/utils/hooks/useTheme'
 import { KeyboardArrowRight } from '@mui/icons-material'
-import { Theme } from '~/utils/helpers/theme.helpers'
 
-export const work = () => {
-  const { theme } = useTheme()
-
+export default function work() {
   return (
     <Styles.Work>
       <Styles.Header>Work</Styles.Header>
@@ -14,11 +10,7 @@ export const work = () => {
         services/anything I want. I enjoy a multitude of things from planning and designing all the
         way to solving real-life problems with code.
       </Styles.WorkContent>
-      <Styles.WorkButton
-        color="secondary"
-        variant={theme === Theme.DARK ? 'contained' : 'outlined'}
-        endIcon={<KeyboardArrowRight />}
-      >
+      <Styles.WorkButton color="secondary" endIcon={<KeyboardArrowRight />} disabled>
         My portfolio
       </Styles.WorkButton>
     </Styles.Work>

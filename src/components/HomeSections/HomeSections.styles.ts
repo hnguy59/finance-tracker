@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Button, Card, CardContent, Link, Tooltip } from '@mui/material'
-import { getFontColor, ThemeProps } from '~/utils/helpers/theme.helpers'
+import { getFontColor, ThemeProps } from 'utils/helpers/theme.helpers'
 
 export const GreetingsCard = styled.div`
   display: flex;

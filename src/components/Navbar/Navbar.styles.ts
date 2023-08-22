@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Avatar, Link, Switch } from '@mui/material'
-import { getFontColor, Theme, ThemeProps } from '~/utils/helpers/theme.helpers'
+import { getFontColor, Theme, ThemeProps } from 'utils/helpers/theme.helpers'
 
 type NavLinkProps = {
   isActive?: boolean
@@ -13,7 +13,6 @@ type NavAvatarProps = {
 export const Navbar = styled.nav`
   position: fixed;
   backdrop-filter: blur(10px);
-  background: ;
   width: 100%;
   z-index: 999;
 `
