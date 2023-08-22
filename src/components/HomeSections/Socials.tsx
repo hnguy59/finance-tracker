@@ -1,41 +1,45 @@
-import * as Styles from './HomeSections.styles'
 import { Email, GitHub, Instagram, LinkedIn } from '@mui/icons-material'
-import useTheme from 'utils/hooks/useTheme'
 import AnimateWrapper from 'components/AnimateWrapper'
 
 export default function Socials() {
-  const { themeProps } = useTheme()
-
   return (
     <AnimateWrapper>
-      <Styles.Socials>
-        <Styles.Header>Socials</Styles.Header>
-        <Styles.SocialsContent>
-          <Styles.SocialsItem
+      <div className="flex flex-col gap-4 text-dark dark:text-light">
+        <div className="text-lg font-bold underline decoration-[3px]">Socials</div>
+        <div className="flex flex-col gap-2">
+          <a
+            className="flex flex-row gap-2 no-underline w-fit hover:underline"
             href="https://www.linkedin.com/in/henry-nguyen-1a5980191/"
             target="_blank"
-            {...themeProps}
           >
             <LinkedIn /> Henry Nguyen
-          </Styles.SocialsItem>
-          <Styles.SocialsItem href="https://github.com/hnguy59" target="_blank" {...themeProps}>
+          </a>
+          <a
+            className="flex flex-row gap-2 no-underline w-fit hover:underline"
+            href="https://github.com/hnguy59"
+            target="_blank"
+          >
             <GitHub />
             @hnguy59
-          </Styles.SocialsItem>
-          <Styles.SocialsItem
+          </a>
+          <a
+            className="flex flex-row gap-2 no-underline w-fit hover:underline"
             href="https://www.instagram.com/apricot.taffy/"
             target="_blank"
-            {...themeProps}
           >
             <Instagram />
             @apricot.taffy
-          </Styles.SocialsItem>
-          <Styles.SocialsItem href="mailto:riripishu@gmail.com" target="_blank" {...themeProps}>
+          </a>
+          <a
+            className="flex flex-row gap-2 no-underline w-fit hover:underline"
+            href="mailto:riripishu@gmail.com"
+            target="_blank"
+          >
             <Email />
             riripishu@gmail.com
-          </Styles.SocialsItem>
-        </Styles.SocialsContent>
-      </Styles.Socials>
+          </a>
+        </div>
+      </div>
     </AnimateWrapper>
   )
 }

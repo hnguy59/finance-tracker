@@ -20,7 +20,7 @@ export default function CarouselItem({ carouselItem }: CarouselItemProps) {
     <div className="flex w-full h-[300px]">
       <Paper
         className="flex flex-col w-full h-full justify-end bg-cover bg-center hover:cursor-pointer"
-        style={{ backgroundImage: carouselItem.image }}
+        style={{ backgroundImage: `url("${carouselItem.image}")` }}
         onClick={handleOpenImageModal}
       >
         <div className="flex flex-col w-full p-4 bg-white/50">
@@ -29,7 +29,7 @@ export default function CarouselItem({ carouselItem }: CarouselItemProps) {
         </div>
       </Paper>
       <Dialog open={isImageModalOpen} onClose={handleCloseImageModal}>
-        <Image src={carouselItem.image} alt={carouselItem.title} />
+        <Image src={carouselItem.image} alt={carouselItem.title} width={999} height={999} />
       </Dialog>
     </div>
   )

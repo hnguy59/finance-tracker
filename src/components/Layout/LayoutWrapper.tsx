@@ -22,7 +22,7 @@ export default function LayoutWrapper({ children }: LayoutWrapperProps) {
   }, [])
 
   return (
-    <main className="flex flex-col bg-white dark:bg-gray-200">
+    <main className="flex flex-col bg-[#dee4e7] dark:bg-[#37474f] transition-colors duration-300">
       <div className="flex min-h-[56px]">
         <Navbar />
       </div>

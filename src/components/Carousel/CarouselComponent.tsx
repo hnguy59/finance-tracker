@@ -17,7 +17,7 @@ export default function CarouselComponent({ carouselItems }: CarouselComponentPr
   }
 
   return (
-    <Carousel className="w-full">
+    <Carousel className="w-full rounded-xl">
       {carouselItems.map((carouselItem) => (
         <CarouselItem carouselItem={carouselItem} key={carouselItem.title} />
       ))}
