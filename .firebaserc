@@ -1,9 +1,0 @@
-{
-  "projects": {
-    "default": "loser-club-hause"
-  },
-  "hosting": {
-    "site": "hnguy59",
-    "public": "public"
-  }
-}
