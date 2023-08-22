@@ -9,13 +9,13 @@ export default function Navbar() {
   const router = useRouter()
 
   return (
-    <nav className="fixed w-full z-50">
+    <nav className="fixed w-full z-50 bg-white/95 dark:bg-gray-700/95">
       <div className="flex items-center gap-4 m-auto max-w-[768px] w-full p-2">
         <Link
           href="/"
           className="flex items-center gap-2 no-underline font-bold hover:cursor-pointer"
         >
-          <Avatar src="/images/portrait.jpeg" />
+          <Avatar src="/images/portrait.jpeg" className="border" />
           Henry Nguyen
         </Link>
         <div className="ml-auto">
