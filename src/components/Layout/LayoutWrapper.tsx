@@ -1,6 +1,7 @@
 import { ReactElement, useCallback } from 'react'
 import Navbar from 'components/Navbar'
 import { useRouter } from 'next/router'
+import { Analytics } from '@vercel/analytics/react'
 
 interface LayoutWrapperProps {
   children: ReactElement
@@ -26,7 +27,10 @@ export default function LayoutWrapper({ children }: LayoutWrapperProps) {
       <div className="flex min-h-[56px]">
         <Navbar />
       </div>
-      <div className="flex w-full max-w-[600px] p-4 m-auto relative">{children}</div>
+      <div className="flex w-full max-w-[600px] p-4 m-auto relative">
+        {children}
+        <Analytics />
+      </div>
       <div className="flex mt-auto justify-center">
         <div className="flex w-full max-w-[1200px] p-4 self-center justify-center">
           © {year} Henry Nguyen. All Rights Reserved.

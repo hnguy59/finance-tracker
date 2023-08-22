@@ -17,6 +17,7 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/react-scroll": "^1.8.6",
+    "@vercel/analytics": "^1.0.2",
     "axios": "^1.2.4",
     "firebase": "^9.17.1",
     "framer-motion": "^8.5.5",
